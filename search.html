@@ -126,12 +126,31 @@
                 showLoading(container);
 
                 try {
-                    const articles = await newsAggregator.fetchNews({
-                        query: query,
-                        pageSize: 12
-                    });
+                    // The free API doesn't support search queries, so we'll fetch from multiple categories
+                    // and filter client-side based on search term
+                    let allArticles = [];
+                    
+                    const categories = ['general', 'business', 'technology', 'health', 'sports'];
+                    for (const cat of categories) {
+                        try {
+                            const articles = await newsAggregator.fetchNews({
+                                category: cat,
+                                country: 'us'
+                            });
+                            allArticles = allArticles.concat(articles);
+                        } catch (e) {
+                            console.warn(`Failed to fetch ${cat}`);
+                        }
+                    }
 
-                    newsAggregator.renderNews(articles, container, {
+                    // Filter articles based on search query (title/description)
+                    const searchLower = query.toLowerCase();
+                    const filteredArticles = allArticles.filter(article =>
+                        article.title.toLowerCase().includes(searchLower) ||
+                        (article.description && article.description.toLowerCase().includes(searchLower))
+                    );
+
+                    newsAggregator.renderNews(filteredArticles, container, {
                         layout: 'grid',
                         showExcerpt: true,
                         showImage: true,

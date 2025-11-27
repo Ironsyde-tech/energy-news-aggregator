@@ -14,8 +14,8 @@ async function loadSidebarNews() {
     try {
         // Fetch latest news for sidebar
         const articles = await newsAggregator.fetchNews({
-            query: CONFIG.keywords.general,
-            pageSize: 5
+            category: 'general',
+            country: 'us'
         });
 
         newsAggregator.renderNews(articles, container, {

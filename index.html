@@ -688,9 +688,8 @@
       showLoading(featuredContainer);
       try {
         const articles = await newsAggregator.fetchNews({
-          query: CONFIG.keywords.featured,
-          category: 'featured',
-          pageSize: 5
+          category: 'general',
+          country: 'us'
         });
 
         // Populate hero carousel with these articles
@@ -718,9 +717,8 @@
       showLoading(usNewsContainer);
       try {
         const articles = await newsAggregator.fetchNews({
-          query: CONFIG.keywords.usNews,
-          category: 'us-news',
-          pageSize: 5
+          category: 'general',
+          country: 'us'
         });
         newsAggregator.renderNews(articles, usNewsContainer, {
           layout: 'list',
@@ -739,9 +737,8 @@
       showLoading(intlContainer);
       try {
         const articles = await newsAggregator.fetchNews({
-          query: CONFIG.keywords.international,
-          category: 'international',
-          pageSize: 5
+          category: 'general',
+          country: 'gb'
         });
         newsAggregator.renderNews(articles, intlContainer, {
           layout: 'list',
@@ -760,9 +757,8 @@
       showLoading(pressContainer);
       try {
         const articles = await newsAggregator.fetchNews({
-          query: CONFIG.keywords.pressReleases,
-          category: 'press-releases',
-          pageSize: 5
+          category: 'business',
+          country: 'us'
         });
         newsAggregator.renderNews(articles, pressContainer, {
           layout: 'list',
@@ -781,9 +777,8 @@
       showLoading(showcaseContainer);
       try {
         const articles = await newsAggregator.fetchNews({
-          query: CONFIG.keywords.showcase,
-          category: 'showcase',
-          pageSize: 4
+          category: 'technology',
+          country: 'us'
         });
         newsAggregator.renderNews(articles, showcaseContainer, {
           layout: 'grid',

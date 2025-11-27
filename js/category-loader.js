@@ -12,6 +12,26 @@ import { showLoading, showError } from './utils.js';
  * @param {number} page - Page number
  */
 export async function loadCategoryNews(category, page = 1) {
+    // Map category keys to API categories
+    const categoryMap = {
+        'us-news': 'general',
+        'international': 'general',
+        'press-releases': 'business',
+        'announcements': 'business',
+        'showcase': 'technology'
+    };
+
+    // Determine country based on category
+    const countryMap = {
+        'us-news': 'us',
+        'international': 'gb', // Use UK as default for international
+        'press-releases': 'us',
+        'announcements': 'us',
+        'showcase': 'us'
+    };
+
+    const apiCategory = categoryMap[category] || 'general';
+    const apiCountry = countryMap[category] || 'us';
     const categoryConfig = CONFIG.categories[category];
 
     if (!categoryConfig) {
@@ -29,10 +49,10 @@ export async function loadCategoryNews(category, page = 1) {
     showLoading(container);
 
     try {
-        // Fetch news for this category
+        // Fetch news for this category using the free API
         const articles = await newsAggregator.fetchNews({
-            query: categoryConfig.keywords,
-            category: category,
+            category: apiCategory,
+            country: apiCountry,
             page: page
         });
 
