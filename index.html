@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Global Energy News - Breaking stories, industry analysis, and comprehensive coverage of energy markets worldwide">
+  <meta name="keywords" content="energy news, oil, gas, renewable energy, solar, wind, nuclear power, energy industry">
+  <meta name="author" content="Global Energy News">
+  <title>Global Energy News | Industry Coverage & Breaking Headlines</title>
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="theme-color" content="#c41e3a">
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="date-time"><time id="date-time" datetime="">Tuesday, November 25, 2025</time></div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">
+          <div class="logo-circle">GEN</div>
+          <div class="logo-text">
+            <div class="logo-title">Global Energy News</div>
+            <div class="logo-tagline">Trusted Industry Coverage</div>
+          </div>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+          <form action="search.html" method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Search news..." class="search-input" required>
+            <button type="submit" class="search-button" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Commodities Ticker -->
+  <div id="commodities-ticker" class="ticker-container"></div>
+
+  <!-- Main Navigation -->
+  <nav class="nav-main">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="category-us-news.html">US News</a></li>
+        <li><a href="category-international.html">International</a></li>
+        <li><a href="category-press-releases.html">Press Releases</a></li>
+        <li><a href="category-showcase.html">Showcase</a></li>
+        <li><a href="category-announcements.html">Company News</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Hero Carousel Section -->
+  <section class="hero-carousel">
+    <div class="carousel-container" id="carousel-container">
+      <!-- Slides will be dynamically populated from featured news -->
+    </div>
+
+    <!-- Carousel Navigation -->
+    <button class="carousel-nav carousel-prev" aria-label="Previous slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="carousel-nav carousel-next" aria-label="Next slide">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators" id="carousel-indicators">
+      <!-- Indicators will be dynamically populated -->
+    </div>
+  </section>
+
+  <!-- Article Container -->
+  <div class="article-container">
+
+    <!-- Main Article -->
+    <article class="article-main">
+
+      <!-- Article Header -->
+      <div class="article-header">
+        <div class="article-meta">
+          <span class="author">By Phil Anderson</span>
+          <span>•</span>
+          <span>Updated 8:30 AM CST</span>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
+
+        <!-- Share Buttons -->
+        <div class="share-buttons">
+          <a href="#" class="share-btn facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+            Share
+          </a>
+          <a href="#" class="share-btn twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+            </svg>
+            Tweet
+          </a>
+          <a href="#" class="share-btn linkedin">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            Share
+          </a>
+        </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="article-content">
+
+        <p>
+          <strong>Gulf of Mexico</strong> — A powerful explosion tore through an offshore oil and gas maintenance rig
+          early this morning, killing three workers and triggering a large-scale emergency response across the central
+          Gulf. The rig, currently under full maintenance and refurbishment operations, is managed under contract by
+          Align Oil & Gas Maintenance Company, led by veteran offshore project director Richard A. Olavsen.
+        </p>
+
+        <p>
+          Witnesses on board reported a "violent blast followed by a deep metallic shockwave" erupting from one of the
+          service modules where a routine calibration and gas-sensor procedure was being performed. The explosion was
+          strong enough to shake the platform, setting off alarms across all decks and forcing an immediate shutdown of
+          all active systems.
+        </p>
+
+        <h2>Casualties and Immediate Response</h2>
+
+        <figure>
+          <img src="medics_emergency_response_1764098706695.png"
+            alt="Emergency medical personnel treating injured workers">
+          <figcaption>Emergency medical teams provide critical care to injured rig workers aboard a rescue vessel. <span
+              class="image-credit">Photo: Global Energy News</span></figcaption>
+        </figure>
+
+        <p>
+          Emergency teams confirmed three fatalities:
+        </p>
+
+        <ul>
+          <li>Two local Gulf Region contractors, both with over a decade of offshore experience</li>
+          <li>One German safety systems specialist, brought in for high-precision calibration work</li>
+        </ul>
+
+        <p>
+          Several others suffered injuries ranging from burns to blunt impact trauma. All surviving personnel have since
+          been airlifted or treated by on-site medics.
+        </p>
+
+        <h2>What Triggered the Explosion?</h2>
+
+        <figure>
+          <img src="rig_machinery_detail_1764098727220.png" alt="Offshore rig gas compression equipment">
+          <figcaption>Complex gas compression systems like those on the Deepwater Titan require extensive maintenance
+            protocols. <span class="image-credit">Photo: Global Energy News</span></figcaption>
+        </figure>
+
+        <p>
+          Early investigative notes point toward a catastrophic failure in a high-pressure valve assembly, though
+          officials warn that the true cause may involve deeper systemic faults.
+        </p>
+
+        <p>
+          Project Director Richard A. Olavsen, who has overseen multiple high-risk refurbishing operations globally,
+          immediately ordered a Level-3 Emergency Suspension, halting all work on the rig until the investigation
+          provides clarity.
+        </p>
+
+        <blockquote>
+          "Our priority is the safety of every worker. What happened today is devastating, and we will not resume any
+          operations until we fully understand the cause and ensure it cannot happen again."
+          <cite>— Richard A. Olavsen, Project Director, Align Oil & Gas Maintenance Company</cite>
+        </blockquote>
+
+        <h2>Authorities Mobilize</h2>
+
+        <figure>
+          <img src="investigators_scene_1764098746116.png" alt="Federal investigators and Coast Guard officials">
+          <figcaption>Federal investigators and Coast Guard officials coordinate the emergency response and begin
+            preliminary assessments. <span class="image-credit">Photo: Global Energy News</span></figcaption>
+        </figure>
+
+        <p>
+          The Gulf Offshore Safety & Compliance Board (GOSCB) has dispatched investigators to the site, while federal
+          maritime authorities have activated a full technical review. Additional helicopters and marine units remain
+          positioned around the rig as a precautionary measure during structural assessments.
+        </p>
+
+        <h2>A Region on Edge</h2>
+
+        <figure>
+          <img src="gulf_map_location_1764098764500.png" alt="Map showing incident location in Gulf of Mexico">
+          <figcaption>The Deepwater Titan is located approximately 120 miles southeast of New Orleans in federal waters.
+            <span class="image-credit">Graphic: Global Energy News</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          This incident has reignited concerns about offshore safety across the Gulf, especially during periods of heavy
+          maintenance and calibration work — phases known to be some of the most hazardous in the industry.
+        </p>
+
+        <p>
+          Experts warn that today's explosion could prompt renewed debate about equipment certification standards,
+          particularly regarding imported gas-sensor cartridges and pressure valve components used across multiple rigs.
+        </p>
+
+        <h2>What Happens Next?</h2>
+
+        <p>
+          A full investigative report is expected in the coming weeks. For now, the rig remains secured, with all
+          non-essential staff evacuated.
+        </p>
+
+        <p>
+          <em>This is a developing story. Updates will be posted as more information becomes available.</em>
+        </p>
+
+      </div>
+
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <!-- Related Articles -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Related Articles</h3>
+        <ul class="related-articles">
+          <li class="related-article">
+            <a href="https://www.dailymail.co.uk/news/article-1267944/Deepwater-Horizon-oil-rig-explosion-11-workers-missing-Gulf-Mexico.html"
+              class="related-article-link" target="_blank" rel="noopener noreferrer">
+              <img src="related_coast_guard_1764098814673.png" alt="Coast Guard search operations"
+                class="related-article-thumbnail">
+              <div class="related-article-content">
+                <div class="related-article-title">Coast Guard Expands Search Radius for Missing Rig Workers</div>
+                <span class="related-article-category">Energy & Safety</span>
+              </div>
+            </a>
+          </li>
+          <li class="related-article">
+            <a href="https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Inch-Up-as-Gulf-Output-Disruption-Looms-Large.html"
+              class="related-article-link" target="_blank" rel="noopener noreferrer">
+              <img src="related_oil_prices_1764098789395.png" alt="Oil price chart" class="related-article-thumbnail">
+              <div class="related-article-content">
+                <div class="related-article-title">Oil Prices Spike Following Gulf of Mexico Incident</div>
+                <span class="related-article-category">Business</span>
+              </div>
+            </a>
+          </li>
+          <li class="related-article">
+            <a href="https://stateimpactcenter.org/issues/oceans-and-water-policy/offshore-drilling-regulations"
+              class="related-article-link" target="_blank" rel="noopener noreferrer">
+              <img src="offshore_rig_hero_1764097748859.png" alt="Offshore rig" class="related-article-thumbnail">
+              <div class="related-article-content">
+                <div class="related-article-title">Environmental Groups Demand Stricter Offshore Regulations</div>
+                <span class="related-article-category">Environment</span>
+              </div>
+            </a>
+          </li>
+          <li class="related-article">
+            <a href="https://www.morrowsheppard.com/blog/11-historical-offshore-incidents-and-why-they-happened/"
+              class="related-article-link" target="_blank" rel="noopener noreferrer">
+              <img src="gulf_map_location_1764098764500.png" alt="Gulf map" class="related-article-thumbnail">
+              <div class="related-article-content">
+                <div class="related-article-title">Timeline: Major Offshore Drilling Disasters Since 2000</div>
+                <span class="related-article-category">Analysis</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Latest Updates -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Latest Updates</h3>
+        <ul class="related-articles">
+          <li class="related-article">
+            <a href="#">
+              8:30 AM: Death Toll Rises to Four, Six Still Missing
+              <span class="related-article-category">Breaking</span>
+            </a>
+          </li>
+          <li class="related-article">
+            <a href="#">
+              7:15 AM: BSEE Investigators Arrive on Scene
+              <span class="related-article-category">Breaking</span>
+            </a>
+          </li>
+          <li class="related-article">
+            <a href="#">
+              6:45 AM: Triton Energy CEO Issues Statement
+              <span class="related-article-category">Breaking</span>
+            </a>
+          </li>
+          <li class="related-article">
+            <a href="#">
+              5:30 AM: Coast Guard Confirms Multiple Casualties
+              <span class="related-article-category">Breaking</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- News Aggregation Sections -->
+  <div class="container" style="margin-top: var(--space-3xl);">
+
+    <!-- Featured News Section -->
+    <section class="category-section">
+      <div class="category-header">
+        <h2 class="category-title">Featured News</h2>
+        <a href="category-us-news.html" class="category-link">More News →</a>
+      </div>
+      <div id="featured-news-container">
+        <!-- News will be loaded here via JavaScript -->
+      </div>
+    </section>
+
+    <!-- US News Section -->
+    <section class="category-section">
+      <div class="category-header">
+        <h2 class="category-title">US Energy News</h2>
+        <a href="category-us-news.html" class="category-link">More US News →</a>
+      </div>
+      <div id="us-news-container">
+        <!-- News will be loaded here via JavaScript -->
+      </div>
+    </section>
+
+    <!-- International News Section -->
+    <section class="category-section">
+      <div class="category-header">
+        <h2 class="category-title">CDN & International News</h2>
+        <a href="category-international.html" class="category-link">More International →</a>
+      </div>
+      <div id="international-news-container">
+        <!-- News will be loaded here via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Press Releases Section -->
+    <section class="category-section">
+      <div class="category-header">
+        <h2 class="category-title">Press Releases</h2>
+        <a href="category-press-releases.html" class="category-link">More Releases →</a>
+      </div>
+      <div id="press-releases-container">
+        <!-- News will be loaded here via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Showcase Features Section -->
+    <section class="category-section">
+      <div class="category-header">
+        <h2 class="category-title">Showcase Features</h2>
+        <a href="category-showcase.html" class="category-link">More Features →</a>
+      </div>
+      <div id="showcase-container">
+        <!-- News will be loaded here via JavaScript -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>Global Energy News provides comprehensive coverage of the energy industry worldwide, delivering accurate,
+            timely reporting on critical developments affecting global markets and communities.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Sections</h3>
+          <ul class="footer-links">
+            <li><a href="#">World News</a></li>
+            <li><a href="#">Business & Markets</a></li>
+            <li><a href="#">Energy Industry</a></li>
+            <li><a href="#">Safety & Regulation</a></li>
+            <li><a href="#">Environment</a></li>
+            <li><a href="#">Technology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Subscribe</a></li>
+            <li><a href="#">Press Room</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Global Energy News. All rights reserved. Professional news coverage for industry stakeholders.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+<!-- Script: show visitor's local date/time live in the top bar -->
+<script>
+  (function () {
+    const el = document.getElementById('date-time');
+    if (!el) return;
+
+    function update() {
+      const now = new Date();
+      const locale = navigator.language || 'en-US';
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      };
+      // Format using the visitor's locale
+      el.textContent = new Intl.DateTimeFormat(locale, options).format(now);
+      // Keep a machine-readable value as well for e.g. scraping or JS access
+      el.setAttribute('datetime', now.toISOString());
+    }
+
+    // Update immediately and then every second
+    update();
+    setInterval(update, 1000);
+  })();
+</script>
+
+<!-- Ticker Script -->
+<script type="module" src="js/ticker.js"></script>
+
+<!-- Homepage News Aggregation Script -->
+<script type="module">
+  import newsAggregator from './js/news-aggregator.js';
+  import CONFIG from './js/config.js';
+  import { showLoading, showError, formatDate, truncateText, sanitizeHTML, getRandomPlaceholder } from './js/utils.js';
+
+  // ===================================
+  // POPULATE HERO CAROUSEL
+  // ===================================
+  function populateHeroCarousel(articles) {
+    const carouselContainer = document.getElementById('carousel-container');
+    const indicatorsContainer = document.getElementById('carousel-indicators');
+
+    if (!carouselContainer || !indicatorsContainer) return;
+
+    // Clear containers
+    carouselContainer.innerHTML = '';
+    indicatorsContainer.innerHTML = '';
+
+    // Pinned Article (Restored per user request)
+    // Pinned Article (Restored per user request)
+    const pinnedArticle = {
+      title: 'Deadly Explosion Rocks Offshore Rig in Gulf of Mexico — Investigation Underway',
+      description: 'Gulf of Mexico — A powerful explosion tore through an offshore oil and gas maintenance rig early this morning, killing three workers and triggering a large-scale emergency response across the central Gulf.',
+      urlToImage: 'offshore_rig_hero_1764097748859.png',
+      publishedAt: '2025-11-25T06:45:00', // Matches 6:45 AM CST
+      source: { name: 'Energy & Safety' },
+      isPinned: true, // Custom flag to identify pinned article
+      content: `
+        <p><strong>Gulf of Mexico</strong> — A powerful explosion tore through an offshore oil and gas maintenance rig early this morning, killing three workers and triggering a large-scale emergency response across the central Gulf. The rig, currently under full maintenance and refurbishment operations, is managed under contract by Align Oil & Gas Maintenance Company, led by veteran offshore project director Richard A. Olavsen.</p>
+        
+        <p>Witnesses on board reported a "violent blast followed by a deep metallic shockwave" erupting from one of the service modules where a routine calibration and gas-sensor procedure was being performed. The explosion was strong enough to shake the platform, setting off alarms across all decks and forcing an immediate shutdown of all active systems.</p>
+        
+        <h3>Casualties and Immediate Response</h3>
+        
+        <p>Emergency teams confirmed three fatalities:</p>
+        <ul>
+          <li>Two local Gulf Region contractors, both with over a decade of offshore experience</li>
+          <li>One German safety systems specialist, brought in for high-precision calibration work</li>
+        </ul>
+        
+        <p>Several others suffered injuries ranging from burns to blunt impact trauma. All surviving personnel have since been airlifted or treated by on-site medics.</p>
+        
+        <h3>What Triggered the Explosion?</h3>
+        
+        <p>Early investigative notes point toward a catastrophic failure in a high-pressure valve assembly, though officials warn that the true cause may involve deeper systemic faults.</p>
+        
+        <p>Project Director Richard A. Olavsen, who has overseen multiple high-risk refurbishing operations globally, immediately ordered a Level-3 Emergency Suspension, halting all work on the rig until the investigation provides clarity.</p>
+        
+        <blockquote>
+          "Our priority is the safety of every worker. What happened today is devastating, and we will not resume any operations until we fully understand the cause and ensure it cannot happen again."
+          <cite>— Richard A. Olavsen, Project Director, Align Oil & Gas Maintenance Company</cite>
+        </blockquote>
+        
+        <h3>Authorities Mobilize</h3>
+        
+        <p>The Gulf Offshore Safety & Compliance Board (GOSCB) has dispatched investigators to the site, while federal maritime authorities have activated a full technical review. Additional helicopters and marine units remain positioned around the rig as a precautionary measure during structural assessments.</p>
+        
+        <h3>A Region on Edge</h3>
+        
+        <p>This incident has reignited concerns about offshore safety across the Gulf, especially during periods of heavy maintenance and calibration work — phases known to be some of the most hazardous in the industry.</p>
+        
+        <p>Experts warn that today’s explosion could prompt renewed debate about equipment certification standards, particularly regarding imported gas-sensor cartridges and pressure valve components used across multiple rigs.</p>
+        
+        <h3>What Happens Next?</h3>
+        
+        <p>A full investigative report is expected in the coming weeks. For now, the rig remains secured, with all non-essential staff evacuated.</p>
+      `
+    };
+
+    // Combine pinned article with fetched articles (take 4 fetched to make total 5)
+    const heroArticles = [pinnedArticle, ...articles.slice(0, 4)];
+
+    // Badge labels for variety
+    const badgeLabels = ['Breaking News', 'Featured', 'Market Watch', 'Top Story', 'Latest'];
+
+    heroArticles.forEach((article, index) => {
+      // Create slide
+      const slide = document.createElement('div');
+      slide.className = `carousel-slide${index === 0 ? ' active' : ''}`;
+
+      // Image
+      const img = document.createElement('img');
+      img.src = article.urlToImage || getRandomPlaceholder(CONFIG.placeholderImages);
+      img.alt = sanitizeHTML(article.title);
+      img.className = 'hero-image';
+      img.onerror = () => {
+        img.src = getRandomPlaceholder(CONFIG.placeholderImages);
+      };
+
+      // Overlay
+      const overlay = document.createElement('div');
+      overlay.className = 'hero-overlay';
+
+      // Content container
+      const content = document.createElement('div');
+      content.className = 'container hero-content';
+
+      // Badge
+      const badge = document.createElement('div');
+      badge.className = 'breaking-badge';
+      // If it's our pinned article, force "Breaking News", otherwise cycle through labels
+      if (article.isPinned) {
+        badge.textContent = 'Breaking News';
+      } else {
+        badge.textContent = badgeLabels[(index - 1) % badgeLabels.length]; // Offset index since pinned is 0
+      }
+
+      // Headline
+      const headline = document.createElement('h1');
+      headline.className = 'hero-headline';
+      headline.textContent = sanitizeHTML(article.title);
+
+      // Subheading (description)
+      const subheading = document.createElement('p');
+      subheading.className = 'hero-subheading';
+      subheading.textContent = sanitizeHTML(article.description || truncateText(article.content || '', 150));
+
+      // Meta info
+      const meta = document.createElement('div');
+      meta.className = 'hero-meta';
+
+      // Category tag
+      const categoryItem = document.createElement('div');
+      categoryItem.className = 'meta-item';
+      const categoryTag = document.createElement('span');
+      categoryTag.className = 'category-tag';
+      categoryTag.textContent = sanitizeHTML(article.source?.name || 'Energy News');
+      categoryItem.appendChild(categoryTag);
+
+      // Date
+      const dateItem = document.createElement('div');
+      dateItem.className = 'meta-item';
+      const dateSpan = document.createElement('span');
+      dateSpan.textContent = formatDate(article.publishedAt);
+      dateItem.appendChild(dateSpan);
+
+      // Time (relative)
+      const timeItem = document.createElement('div');
+      timeItem.className = 'meta-item';
+      const timeSpan = document.createElement('span');
+      const publishDate = new Date(article.publishedAt);
+      const hours = publishDate.getHours();
+      const minutes = publishDate.getMinutes().toString().padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      const displayHours = hours % 12 || 12;
+      timeSpan.textContent = `${displayHours}:${minutes} ${ampm}`;
+      timeItem.appendChild(timeSpan);
+
+      // Append meta items
+      meta.appendChild(categoryItem);
+      meta.appendChild(dateItem);
+      meta.appendChild(timeItem);
+
+      // Assemble content
+      content.appendChild(badge);
+      content.appendChild(headline);
+      content.appendChild(subheading);
+      content.appendChild(meta);
+
+      // Assemble slide
+      slide.appendChild(img);
+      slide.appendChild(overlay);
+      slide.appendChild(content);
+
+      // Make slide clickable
+      slide.style.cursor = 'pointer';
+      slide.addEventListener('click', () => {
+        sessionStorage.setItem('currentArticle', JSON.stringify(article));
+        window.location.href = 'article.html';
+      });
+
+      // Add to carousel
+      carouselContainer.appendChild(slide);
+
+      // Create indicator
+      const indicator = document.createElement('button');
+      indicator.className = `indicator${index === 0 ? ' active' : ''}`;
+      indicator.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      indicator.setAttribute('data-slide', index.toString());
+      indicatorsContainer.appendChild(indicator);
+    });
+  }
+
+  // Load news for each section on homepage
+  async function loadHomepageNews() {
+    // Featured News (5 articles for hero carousel + featured section)
+    const featuredContainer = document.getElementById('featured-news-container');
+    if (featuredContainer) {
+      showLoading(featuredContainer);
+      try {
+        const articles = await newsAggregator.fetchNews({
+          query: CONFIG.keywords.featured,
+          category: 'featured',
+          pageSize: 5
+        });
+
+        // Populate hero carousel with these articles
+        populateHeroCarousel(articles);
+
+        // Also render them in the featured news section
+        newsAggregator.renderNews(articles, featuredContainer, {
+          layout: 'grid',
+          limit: 5,
+          showExcerpt: true,
+          showImage: true
+        });
+
+        // Initialize carousel after populating
+        initCarousel();
+      } catch (error) {
+        showError(featuredContainer);
+        console.error('Featured news error:', error);
+      }
+    }
+
+    // US News (5 articles in list view)
+    const usNewsContainer = document.getElementById('us-news-container');
+    if (usNewsContainer) {
+      showLoading(usNewsContainer);
+      try {
+        const articles = await newsAggregator.fetchNews({
+          query: CONFIG.keywords.usNews,
+          category: 'us-news',
+          pageSize: 5
+        });
+        newsAggregator.renderNews(articles, usNewsContainer, {
+          layout: 'list',
+          limit: 5,
+          showExcerpt: false,
+          showImage: true
+        });
+      } catch (error) {
+        showError(usNewsContainer);
+      }
+    }
+
+    // International News (5 articles in list view)
+    const intlContainer = document.getElementById('international-news-container');
+    if (intlContainer) {
+      showLoading(intlContainer);
+      try {
+        const articles = await newsAggregator.fetchNews({
+          query: CONFIG.keywords.international,
+          category: 'international',
+          pageSize: 5
+        });
+        newsAggregator.renderNews(articles, intlContainer, {
+          layout: 'list',
+          limit: 5,
+          showExcerpt: false,
+          showImage: true
+        });
+      } catch (error) {
+        showError(intlContainer);
+      }
+    }
+
+    // Press Releases (5 articles in list view)
+    const pressContainer = document.getElementById('press-releases-container');
+    if (pressContainer) {
+      showLoading(pressContainer);
+      try {
+        const articles = await newsAggregator.fetchNews({
+          query: CONFIG.keywords.pressReleases,
+          category: 'press-releases',
+          pageSize: 5
+        });
+        newsAggregator.renderNews(articles, pressContainer, {
+          layout: 'list',
+          limit: 5,
+          showExcerpt: false,
+          showImage: false
+        });
+      } catch (error) {
+        showError(pressContainer);
+      }
+    }
+
+    // Showcase Features (4 articles in grid)
+    const showcaseContainer = document.getElementById('showcase-container');
+    if (showcaseContainer) {
+      showLoading(showcaseContainer);
+      try {
+        const articles = await newsAggregator.fetchNews({
+          query: CONFIG.keywords.showcase,
+          category: 'showcase',
+          pageSize: 4
+        });
+        newsAggregator.renderNews(articles, showcaseContainer, {
+          layout: 'grid',
+          limit: 4,
+          showExcerpt: true,
+          showImage: true
+        });
+      } catch (error) {
+        showError(showcaseContainer);
+      }
+    }
+  }
+
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHomepage);
+  } else {
+    initHomepage();
+  }
+
+  function initHomepage() {
+    // Load news (carousel will be initialized inside loadHomepageNews)
+    loadHomepageNews();
+  }
+
+  // ===================================
+  // CAROUSEL FUNCTIONALITY
+  // ===================================
+  function initCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const indicators = document.querySelectorAll('.indicator');
+    let currentSlide = 0;
+    let autoRotateInterval;
+
+    // Show specific slide
+    function showSlide(index) {
+      // Remove active class from all slides and indicators
+      slides.forEach(slide => slide.classList.remove('active'));
+      indicators.forEach(indicator => indicator.classList.remove('active'));
+
+      // Add active class to current slide and indicator
+      slides[index].classList.add('active');
+      indicators[index].classList.add('active');
+      currentSlide = index;
+    }
+
+    // Next slide
+    function nextSlide() {
+      let next = (currentSlide + 1) % slides.length;
+      showSlide(next);
+    }
+
+    // Previous slide
+    function prevSlide() {
+      let prev = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(prev);
+    }
+
+    // Auto-rotate carousel every 6 seconds
+    function startAutoRotate() {
+      autoRotateInterval = setInterval(nextSlide, 6000);
+    }
+
+    function stopAutoRotate() {
+      clearInterval(autoRotateInterval);
+    }
+
+    // Event listeners for navigation buttons
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopAutoRotate();
+        startAutoRotate(); // Restart timer after manual navigation
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopAutoRotate();
+        startAutoRotate();
+      });
+    }
+
+    // Event listeners for indicators
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        showSlide(index);
+        stopAutoRotate();
+        startAutoRotate();
+      });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+        stopAutoRotate();
+        startAutoRotate();
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+        stopAutoRotate();
+        startAutoRotate();
+      }
+    });
+
+    // Pause on hover
+    const carousel = document.querySelector('.hero-carousel');
+    if (carousel) {
+      carousel.addEventListener('mouseenter', stopAutoRotate);
+      carousel.addEventListener('mouseleave', startAutoRotate);
+    }
+
+    // Start auto-rotation
+    startAutoRotate();
+  }
+</script>
+
+</html>

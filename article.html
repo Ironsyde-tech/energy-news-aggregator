@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Global Energy News - Article View">
+    <meta name="keywords" content="energy news, oil, gas, renewable energy">
+    <title>Article | Global Energy News</title>
+
+    <!-- Modular Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#c41e3a">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="date-time"><time id="date-time" datetime="">Tuesday, November 25, 2025</time></div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">Facebook</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <div class="logo-circle">GEN</div>
+                    <div class="logo-text">
+                        <div class="logo-title">Global Energy News</div>
+                        <div class="logo-tagline">Trusted Industry Coverage</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Commodities Ticker -->
+    <div id="commodities-ticker" class="ticker-container"></div>
+
+    <!-- Main Navigation -->
+    <nav class="nav-main">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category-us-news.html">US News</a></li>
+                <li><a href="category-international.html">International</a></li>
+                <li><a href="category-press-releases.html">Press Releases</a></li>
+                <li><a href="category-showcase.html">Showcase</a></li>
+                <li><a href="category-announcements.html">Company News</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Container -->
+    <div class="article-container" style="margin-top: 40px;">
+
+        <!-- Main Article -->
+        <article class="article-main">
+
+            <!-- Article Header -->
+            <div class="article-header">
+                <h1 id="article-title" class="hero-headline"
+                    style="color: var(--color-text-primary); margin-bottom: 1rem;">Loading Article...</h1>
+
+                <div class="article-meta">
+                    <span class="author" id="article-source">Source</span>
+                    <span>•</span>
+                    <span id="article-date">Date</span>
+                </div>
+
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <a href="#" class="share-btn facebook">Share</a>
+                    <a href="#" class="share-btn twitter">Tweet</a>
+                    <a href="#" class="share-btn linkedin">Share</a>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <figure style="margin: 2rem 0;">
+                <img id="article-image" src="" alt="Article Image"
+                    style="width: 100%; height: auto; border-radius: 4px; display: none;">
+                <figcaption id="article-caption"
+                    style="margin-top: 0.5rem; color: var(--color-text-secondary); font-size: 0.9rem;"></figcaption>
+            </figure>
+
+            <!-- Article Content -->
+            <div class="article-content" id="article-body">
+                <p>Please wait while the article loads...</p>
+            </div>
+
+            <!-- Original Link -->
+            <div style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+                <p>Read the full original article at: <a id="article-original-link" href="#" target="_blank"
+                        rel="noopener noreferrer">External Source</a></p>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Latest Updates</h3>
+                <div id="sidebar-news-container">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Newsletter</h3>
+                <div class="newsletter-box">
+                    <p>Subscribe to our daily briefing.</p>
+                    <form class="newsletter-form"
+                        onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Events -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Industry Events</h3>
+                <ul class="events-list">
+                    <li class="event-item">
+                        <div class="event-date">Dec 05</div>
+                        <div class="event-details">
+                            <div class="event-title">Global Energy Summit</div>
+                            <div class="event-location">London, UK</div>
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <div class="event-date">Dec 12</div>
+                        <div class="event-details">
+                            <div class="event-title">Renewable Tech Expo</div>
+                            <div class="event-location">Berlin, Germany</div>
+                        </div>
+                    </li>
+                    <li class="event-item">
+                        <div class="event-date">Jan 15</div>
+                        <div class="event-details">
+                            <div class="event-title">Oil & Gas Future Forum</div>
+                            <div class="event-location">Houston, USA</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Global Energy News provides comprehensive coverage of the energy industry worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Sections</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">World News</a></li>
+                        <li><a href="#">Business & Markets</a></li>
+                        <li><a href="#">Energy Industry</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Global Energy News. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        (function () {
+            const el = document.getElementById('date-time');
+            if (!el) return;
+
+            function update() {
+                const now = new Date();
+                const locale = navigator.language || 'en-US';
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                };
+                el.textContent = new Intl.DateTimeFormat(locale, options).format(now);
+                el.setAttribute('datetime', now.toISOString());
+            }
+
+            update();
+            setInterval(update, 1000);
+        })();
+    </script>
+
+    <!-- Article Loader Script -->
+    <script type="module" src="js/article-loader.js"></script>
+    <script type="module" src="js/ticker.js"></script>
+
+</body>
+
+</html>

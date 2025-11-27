@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search Results - Global Energy News">
+    <title>Search Results | Global Energy News</title>
+
+    <!-- Modular Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#c41e3a">
+</head>
+
+<body>
+
+    </header>
+
+    <!-- Commodities Ticker -->
+    <div id="commodities-ticker" class="ticker-container"></div>
+
+    <!-- Main Navigation -->
+    <nav class="nav-main">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category-us-news.html">US News</a></li>
+                <li><a href="category-international.html">International</a></li>
+                <li><a href="category-press-releases.html">Press Releases</a></li>
+                <li><a href="category-showcase.html">Showcase</a></li>
+                <li><a href="category-announcements.html">Company News</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">Search Results</h1>
+            <p class="page-description" id="search-query-display">Showing results for...</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- News Container -->
+        <div id="news-container">
+            <!-- News will be loaded here via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Global Energy News provides comprehensive coverage of the energy industry worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Sections</h3>
+                    <ul class="footer-links">
+                        <li><a href="category-us-news.html">US News</a></li>
+                        <li><a href="category-international.html">International News</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Global Energy News. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        (function () {
+            const el = document.getElementById('date-time');
+            if (!el) return;
+
+            function update() {
+                const now = new Date();
+                const locale = navigator.language || 'en-US';
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                };
+                el.textContent = new Intl.DateTimeFormat(locale, options).format(now);
+                el.setAttribute('datetime', now.toISOString());
+            }
+
+            update();
+            setInterval(update, 1000);
+        })();
+    </script>
+
+    <script type="module" src="js/ticker.js"></script>
+
+    <!-- Search Logic -->
+    <script type="module">
+        import newsAggregator from './js/news-aggregator.js';
+        import { showLoading, showError, sanitizeHTML } from './js/utils.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+            const container = document.getElementById('news-container');
+            const queryDisplay = document.getElementById('search-query-display');
+            const searchInput = document.querySelector('.search-input');
+
+            if (query) {
+                queryDisplay.textContent = `Showing results for "${sanitizeHTML(query)}"`;
+                if (searchInput) searchInput.value = query;
+
+                showLoading(container);
+
+                try {
+                    const articles = await newsAggregator.fetchNews({
+                        query: query,
+                        pageSize: 12
+                    });
+
+                    newsAggregator.renderNews(articles, container, {
+                        layout: 'grid',
+                        showExcerpt: true,
+                        showImage: true,
+                        showCategory: true
+                    });
+                } catch (error) {
+                    showError(container);
+                }
+            } else {
+                queryDisplay.textContent = 'Please enter a search term.';
+                container.innerHTML = '';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest US energy news - oil, gas, renewable energy, and power industry updates">
+    <meta name="keywords" content="US energy news, oil, gas, renewable energy, power">
+    <title>US Energy News | Global Energy News</title>
+
+    <!-- Modular Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#c41e3a">
+</head>
+
+<body data-category="us-news">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="date-time"><time id="date-time" datetime=""></time></div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">Facebook</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-circle">GEN</div>
+                    <div class="logo-text">
+                        <div class="logo-title">Global Energy News</div>
+                        <div class="logo-tagline">Trusted Industry Coverage</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="nav-main">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="category-us-news.html">US News</a></li>
+                <li><a href="category-international.html">International</a></li>
+                <li><a href="category-press-releases.html">Press Releases</a></li>
+                <li><a href="category-showcase.html">Showcase</a></li>
+                <li><a href="category-announcements.html">Company News</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <span>US Energy News</span>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">US Energy News</h1>
+            <p class="page-description">
+                Latest energy news from across the United States - covering oil & gas, renewable energy, power
+                generation, and industry developments.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- News Container -->
+        <div id="news-container">
+            <!-- News will be loaded here via JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="pagination">
+            <!-- Pagination will be loaded here via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Global Energy News provides comprehensive coverage of the energy industry worldwide, delivering
+                        accurate,
+                        timely reporting on critical developments affecting global markets and communities.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Sections</h3>
+                    <ul class="footer-links">
+                        <li><a href="category-us-news.html">US News</a></li>
+                        <li><a href="category-international.html">International News</a></li>
+                        <li><a href="category-press-releases.html">Press Releases</a></li>
+                        <li><a href="category-showcase.html">Showcase Features</a></li>
+                        <li><a href="category-announcements.html">Company Announcements</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#advertise">Advertise</a></li>
+                        <li><a href="#subscribe">Subscribe</a></li>
+                        <li><a href="#press">Press Room</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#cookies">Cookie Policy</a></li>
+                        <li><a href="#accessibility">Accessibility</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Global Energy News. All rights reserved. Professional news coverage for industry
+                    stakeholders.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Date/Time Script -->
+    <script>
+        (function () {
+            const el = document.getElementById('date-time');
+            if (!el) return;
+
+            function update() {
+                const now = new Date();
+                const locale = navigator.language || 'en-US';
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                };
+                el.textContent = new Intl.DateTimeFormat(locale, options).format(now);
+                el.setAttribute('datetime', now.toISOString());
+            }
+
+            update();
+            setInterval(update, 1000);
+        })();
+    </script>
+
+    <!-- Category Page Script -->
+    <script type="module">
+        import { initCategoryPage } from './js/category-loader.js';
+
+        // Initialize category page when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCategoryPage);
+        } else {
+            initCategoryPage();
+        }
+    </script>
+
+</body>
+
+</html>
