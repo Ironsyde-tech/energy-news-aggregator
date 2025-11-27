@@ -3,14 +3,18 @@
 // ===================================
 
 const CONFIG = {
-    // NewsAPI Configuration
-    // Free tier allows commercial use on GitHub Pages
-    // Get free key from https://newsapi.org/
+const CONFIG = {
+    // Free NewsAPI (No API key needed!)
+    // Source: https://github.com/SauravKanchan/NewsAPI
     newsapi: {
-        apiKey: '8102fdce1bbb4ceb82c3982bc3bd4087',
-        baseURL: 'https://newsapi.org/v2',
-        language: 'en',
-        pageSize: 20 // NewsAPI free tier limit per request
+        baseURL: 'https://saurav.tech/NewsAPI',
+        topHeadlinesPath: '/top-headlines/category',
+        everythingPath: '/everything',
+        // Supported countries: us, in, au, ru, fr, gb
+        defaultCountry: 'us',
+        // Supported categories: business, entertainment, general, health, science, sports, technology
+        defaultCategory: 'general',
+        pageSize: 20
     },
 
     // Cache Configuration

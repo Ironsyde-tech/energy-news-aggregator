@@ -20,27 +20,25 @@ import {
  */
 class NewsAggregator {
     constructor() {
-        this.apiKey = CONFIG.newsapi.apiKey;
         this.baseURL = CONFIG.newsapi.baseURL;
         this.cacheEnabled = CONFIG.cache.enabled;
         this.cacheDuration = CONFIG.cache.duration;
     }
 
     /**
-     * Fetch news articles from NewsAPI
+     * Fetch news articles from free NewsAPI (saurav.tech)
      * @param {Object} options - Query options
      * @returns {Promise<Array>} Array of articles
      */
     async fetchNews(options = {}) {
         const {
-            query = CONFIG.keywords.general,
-            category = 'general',
-            pageSize = CONFIG.newsapi.pageSize,
+            category = CONFIG.newsapi.defaultCategory,
+            country = CONFIG.newsapi.defaultCountry,
             page = 1
         } = options;
 
         // Check cache first
-        const cacheKey = `newsapi_${category}_${page}`;
+        const cacheKey = `newsapi_${category}_${country}_${page}`;
         if (this.cacheEnabled) {
             const cached = getFromCache(cacheKey);
             if (cached) {
@@ -50,18 +48,11 @@ class NewsAggregator {
         }
 
         try {
-            // Build API URL for NewsAPI
-            const params = new URLSearchParams({
-                q: query,
-                language: CONFIG.newsapi.language,
-                pageSize: pageSize,
-                page: page,
-                apiKey: this.apiKey
-            });
+            // Build URL for top-headlines endpoint
+            // Format: https://saurav.tech/NewsAPI/top-headlines/category/{category}/{country}.json
+            const url = `${this.baseURL}${CONFIG.newsapi.topHeadlinesPath}/${category}/${country}.json`;
 
-            const url = `${this.baseURL}/everything?${params}`;
-
-            // Fetch from API
+            // Fetch from free API (no authentication needed)
             const response = await fetch(url);
 
             if (!response.ok) {
@@ -76,14 +67,15 @@ class NewsAggregator {
 
             let articles = data.articles || [];
 
-            // NewsAPI already returns in the correct format, just ensure consistency
-            articles = articles.filter(article => article.urlToImage); // Filter out articles without images
+            // Filter out articles without images
+            articles = articles.filter(article => article.urlToImage);
 
             // Cache the results
             if (this.cacheEnabled && articles.length > 0) {
                 setToCache(cacheKey, articles, this.cacheDuration);
             }
 
+            console.log(`Fetched ${articles.length} articles from ${category}/${country}`);
             return articles;
 
         } catch (error) {
