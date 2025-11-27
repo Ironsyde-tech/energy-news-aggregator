@@ -49,17 +49,20 @@ class NewsAggregator {
 
         try {
             // Build URL for top-headlines endpoint
-            // Format: https://saurav.tech/NewsAPI/top-headlines/category/{category}/{country}.json
-            const url = `${this.baseURL}${CONFIG.newsapi.topHeadlinesPath}/${category}/${country}.json`;
+            const apiUrl = `${this.baseURL}${CONFIG.newsapi.topHeadlinesPath}/${category}/${country}.json`;
+            
+            // Use CORS proxy to bypass CORS restrictions
+            const corsProxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
 
-            // Fetch from free API (no authentication needed)
-            const response = await fetch(url);
+            // Fetch from API via CORS proxy
+            const response = await fetch(corsProxyUrl);
 
             if (!response.ok) {
                 throw new Error(`API Error: ${response.status} ${response.statusText}`);
             }
 
-            const data = await response.json();
+            const proxyData = await response.json();
+            const data = JSON.parse(proxyData.contents);
 
             if (!data.articles) {
                 throw new Error(data.message || 'No articles found');
